@@ -17,3 +17,5 @@ Collection of Powershell scripts to use with my Digispark rubber ducky
 * Payload 5
   * Listens to the targets clipboard
   * Everytime a new item is copied the item is sent through a Discord webhook
+* Payload 6
+  * Extracts the targets saved networks and passwords and sends out through a Discord webhook
