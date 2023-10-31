@@ -20,3 +20,5 @@ while($true)
 		Invoke-RestMethod -ContentType 'Application/Json' -Uri $webhookUrl  -Method Post -Body ($Body | ConvertTo-Json)};
 	}	
 }
+
+EXIT
