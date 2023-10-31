@@ -1,6 +1,9 @@
 # PowershellScripts
 Collection of Powershell scripts to use with my Digispark rubber ducky
 
+* PowershellPayload.ino
+  * Uploaded to Digikey device
+  * Just switch the number in line 16 to the payload desired
 * Payload 1
   * Changes wallpaper of the target computer
 * Payload 2
