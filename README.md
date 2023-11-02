@@ -8,6 +8,14 @@ Collection of Powershell scripts to use with my DIY Rubber Duckies
   * Uploaded to Adafruit Neo Trinkey
   * Able to send four payloads from one device
   * Payloads sent by either long pressing or short pressing each capacitive touch sensor
+  * The four LEDs on the board correspond to a payload
+    * Current version has orange, green, blue, and pink
+    * Orange and green LEDs aligned with touch sensor 1
+      * Short press - Executes orange payload
+      * Long press - Executes green payload 
+    * Blue and pink LEDs aligned with touch sensor 2
+      * Short press - Executes blue payload
+      * Long press - Executes pink payload 
 * Payload 1
   * Changes wallpaper of the target computer
 * Payload 2
