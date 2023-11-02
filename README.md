@@ -1,5 +1,5 @@
 # DIY-RubberDucky-Scripts
-Collection of Powershell scripts to use with my DIY Rubber Duckies
+Collection of Powershell scripts and Arduino code to use with my DIY Rubber Duckies
 
 * PowershellPayload.ino
   * Uploaded to Digikey device
