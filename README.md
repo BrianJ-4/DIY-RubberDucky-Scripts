@@ -1,5 +1,5 @@
-# PowershellScripts
-Collection of Powershell scripts to use with my Digispark rubber ducky
+# DIY-RubberDucky-Scripts
+Collection of Powershell scripts to use with my DIY Rubber Duckies
 
 * PowershellPayload.ino
   * Uploaded to Digikey device
