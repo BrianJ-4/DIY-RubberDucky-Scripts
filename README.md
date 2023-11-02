@@ -1,7 +1,7 @@
 # DIY-RubberDucky-Scripts
 Collection of Powershell scripts and Arduino code to use with my DIY Rubber Duckies
 
-* PowershellPayload.ino
+* DigikeyDucky.ino
   * Uploaded to Digikey device
   * Just switch the number in line 16 to the payload desired
 * TrinkeyQuadPayload.ino
